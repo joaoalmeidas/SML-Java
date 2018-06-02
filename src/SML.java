@@ -7,7 +7,7 @@ public class SML {
 		final int READ = 10;
 		final int WRITE = 11;
 		final int LOAD = 20;
-		final int STORE = 22;
+		final int STORE = 21;
 		final int ADD = 30;
 		final int SUBTRACT = 31;
 		final int DIVIDE = 32;
@@ -21,22 +21,24 @@ public class SML {
 		Scanner input = new Scanner(System.in);
 		
 		int[] memoria = new int[100];
-		int posicao = 0;
+		int posicao = 0, acumulador = 0;
+		boolean halt = false;
 		
-		System.out.println("SIMPLETRON MACHINE LANGUAGE\n\nDigite o seu código abaixo:\nC + ENTER = EXECUTAR");
+		System.out.println("SIMPLETRON MACHINE LANGUAGE\n\nDigite o seu código abaixo:\nc + ENTER = EXECUTAR");
 
 		//inputa os valores para a memoria
-		while(!instrucao.equals("c") || !instrucao.equals("C")) {
+		while(!instrucao.equals("c")) {
 			
 			instrucao = input.nextLine();
-			if(!instrucao.equals("c") || !instrucao.equals("C")){
+			
+			if(!(instrucao.equals("c"))){
 				memoria[posicao] = Integer.parseInt(instrucao);
 				posicao++;
 			}
 		}
 		
 		//percorre a memoria executando os comandos
-		for(int i = 0; i < memoria.length || memoria[i] == 4300; i++) {
+		for(int i = 0; halt == false; i++) {
 			
 			int operacao, indice;
 			
@@ -46,31 +48,70 @@ public class SML {
 			
 			if(operacao == READ) {
 				
+				System.out.printf("Insira um valor:");
+				memoria[indice] = input.nextInt();
+				
 			}else if(operacao == WRITE){
+				System.out.println(" = " +memoria[indice]);
 				
 			}else if(operacao == LOAD){
 				
+				System.out.printf("%d", memoria[indice]);
+				acumulador = memoria[indice];
+				
 			}else if(operacao == STORE){
+				
+				memoria[indice] = acumulador;
 				
 			}else if(operacao == ADD) {
 				
+				System.out.printf(" + " +memoria[indice]);
+				acumulador += memoria[indice];
+				
 			}else if(operacao == SUBTRACT) {
+				
+				System.out.printf(" - " +memoria[indice]);
+				acumulador -= memoria[indice];
 				
 			}else if(operacao == DIVIDE) {
 				
+				
+				System.out.printf(" / " +memoria[indice]);
+				acumulador /= memoria[indice];
+				
 			}else if(operacao == MULTIPLY) {
+				
+				System.out.printf(" * " +memoria[indice]);
+				acumulador *= memoria[indice];
 				
 			}else if(operacao == BRANCH) {
 				
+				i = indice;
+				
 			}else if(operacao == BRANCHNEG) {
+				
+				if(acumulador < 0) {
+					i = indice;
+				}
 				
 			}else if(operacao == BRANCHZERO) {
 				
+				if(acumulador == 0) {
+					i = indice;
+				}
+				
 			}else if(operacao == HALT) {
 				
+				halt = true;
+				
 			}
+			
+			
 		}
 		
+		
+		
 	}
+	
 
 }
