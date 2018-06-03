@@ -36,7 +36,6 @@ public class SML {
 			}
 			
 			if(!instrucao.equals("c") && !instrucao.equals("C")){
-			
 				if(indice >=0 && indice < 100 && instrucao.length() == 4 && operacao == READ || operacao == WRITE || operacao == LOAD || operacao == STORE || operacao == ADD || operacao == SUBTRACT || 
 						operacao == DIVIDE || operacao == MULTIPLY || operacao == BRANCH || operacao == BRANCHNEG || operacao == BRANCHZERO || operacao == HALT) {
 					
