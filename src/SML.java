@@ -58,23 +58,18 @@ public class SML {
 				System.out.printf("Insira um valor:");
 				memoria[indice] = input.nextInt();
 			}else if(operacao == WRITE){
-				System.out.println(" = " +memoria[indice]);
+				System.out.println(memoria[indice]);
 			}else if(operacao == LOAD){
-				System.out.printf("%d", memoria[indice]);
 				acumulador = memoria[indice];
 			}else if(operacao == STORE){
 				memoria[indice] = acumulador;
 			}else if(operacao == ADD) {
-				System.out.printf(" + " +memoria[indice]);
 				acumulador += memoria[indice];
 			}else if(operacao == SUBTRACT) {
-				System.out.printf(" - " +memoria[indice]);
 				acumulador -= memoria[indice];
 			}else if(operacao == DIVIDE) {
-				System.out.printf(" / " +memoria[indice]);
 				acumulador /= memoria[indice];
 			}else if(operacao == MULTIPLY) {
-				System.out.printf(" * " +memoria[indice]);
 				acumulador *= memoria[indice];
 			}else if(operacao == BRANCH) {
 				i = indice;
