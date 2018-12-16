@@ -74,17 +74,18 @@ public class SML {
 			}else if(operacao == MULTIPLY) {
 				acumulador *= memoria[indice];
 			}else if(operacao == BRANCH) {
-				i = indice;
+				i = indice - 1;
 			}else if(operacao == BRANCHNEG) {
 				if(acumulador < 0) {
-					i = indice;
+					i = indice - 1;
 				}
 			}else if(operacao == BRANCHZERO) {
 				if(acumulador == 0) {
-					i = indice;
+					i = indice - 1;
 				}
 			}else if(operacao == HALT) {
 				halt = true;	
+				System.out.println("Terminou!");
 			}	
 		}	
 	}

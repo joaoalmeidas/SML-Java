@@ -24,33 +24,63 @@ Codigos SML
 
 3 - Loop controlado por sentinela para ler 10 números positivos e exibir a sua soma.
 
-1099 - Lê quantos números devem ser somados = 10.
-1098 - Lê decremento = 1.
 
-1097 - Lê valor a ser somado.
-2097 - Carrega valor para acumulador.
-3096 - Adiciona resultado das somas anteriores para o acumulador.
-2196 - Armazena soma dos valores na posição de memória 96.
++1099 - le valor de repeticoes para a memoria
++1098 - le valor do decremento para a memoria	
 
-2099 - Carrega a quantidade de números a serem somados no acumulador.
-3198 - Subtrai o decremento do valor de numeros a serem somados.
-2199 - Armazena o resultado do decremento na posicao 99 da memoria.
-4211 - Se o acumulador for igual a zero, vai para a posicao da memoria 11.
-4002 - Volta para o inicio do laco de repeticao.
-4300 - Termina a execução do programa.
 
-1099
-1098
-1097
-2097
-3096
-2196
-2099
-3198
-2199
-4211
-4002
-4300
++2099 - carrega o valor de repeticoes da memoria para o acumulador
++3198 - subtrai do acumulador o valor do decremento
++2199 - armazena o valor do acumulador para a posicao de memoria das repeticoes
++4207 - se igual a zero, pula para a posicao 07 da memoria
++4002 - pula para a posicao 03 da memoria
++4300 - finaliza a execucao do codigo
+-99999
+---------------------------------------------------------------------------------------
++1099
++1098
+
++1097 - le o valor a ser somado
++2096 - carrega para o acumulador a soma dos valores ate entao
++3097 - soma o valor a ser somado para o acumulador
++2196 - armazena a soma na posicao da memoria 96
+
++2099
++3198
++2199
++4211
++4002
+
++1196 - exibe a soma dos valores
+
++4300
+-99999
+--------------------------------------------------
++1099
++1098
++1097
++2096
++3097
++2196
++2099
++3198
++2199
++4211
++4002
++1196
++4300
+-99999
+
+
+
+
+
+
+
+
+
+
+
 
 
 
