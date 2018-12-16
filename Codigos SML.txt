@@ -9,7 +9,7 @@ Codigos SML
 +2109
 +1109
 +4300
-
+------------------------------------------------------------------------------------------
 2 - Lê dois valores e define o maior
 
 +1009
@@ -21,41 +21,35 @@ Codigos SML
 +4300
 +1110
 +4300
-
+-------------------------------------------------------------------------------------
 3 - Loop controlado por sentinela para ler 10 números positivos e exibir a sua soma.
 
 
 +1099 - le valor de repeticoes para a memoria
 +1098 - le valor do decremento para a memoria	
-
-
++1097 - le o valor a ser somado
++2096 - carrega para o acumulador a soma dos valores ate entao
++3097 - soma o valor a ser somado para o acumulador
++2196 - armazena a soma na posicao da memoria 96
 +2099 - carrega o valor de repeticoes da memoria para o acumulador
 +3198 - subtrai do acumulador o valor do decremento
 +2199 - armazena o valor do acumulador para a posicao de memoria das repeticoes
 +4207 - se igual a zero, pula para a posicao 07 da memoria
 +4002 - pula para a posicao 03 da memoria
++1196 - exibe a soma dos valores
 +4300 - finaliza a execucao do codigo
 -99999
----------------------------------------------------------------------------------------
-+1099
-+1098
 
-+1097 - le o valor a ser somado
-+2096 - carrega para o acumulador a soma dos valores ate entao
-+3097 - soma o valor a ser somado para o acumulador
-+2196 - armazena a soma na posicao da memoria 96
 
-+2099
-+3198
-+2199
-+4211
-+4002
+Código finalizado
 
-+1196 - exibe a soma dos valores
+Instruções:
 
-+4300
--99999
---------------------------------------------------
+1 - Insira a quantidade números a serem somados
+2 - Insira o valor do decremento
+3 - Insira os valores a serem somados
+
+
 +1099
 +1098
 +1097
@@ -70,8 +64,66 @@ Codigos SML
 +1196
 +4300
 -99999
+------------------------------------------------------------------------------------------------
+
+b) Utilize um loop controlado por contador para ler sete números, 
+alguns negativos e alguns positivos, e compute e exiba sua média.
+
++1099 - numero repeticoes
++1098 - decremento
++2099 - carrega o numero de repeticoes no acumulador
++2197 - armazena o o numero de repeticoes na posicao 97
+
++2095 - carregar resultado parcial da soma para o acumulador
++1096 - ler numero que ira entrar na conta para a posicao 96
++3096 - adicionar ao acumulador o novo valor que sera acrescentado que esta na posição 96
++2195 - armazenar resultado do acumulador na posicao 95.
+
++2099 - carregar o numero de repeticoes restantes para o acumulador
++3198 - decrementar o numero de repeticoes restantes que esta no acumulador
++2199 - armazenar o resultado do numero de repeticoes restantes na posicao 99
+
++4213 - se o valor do acumulador for negativo, vai para a parte final da execução do programa
++4004 - volta para o inicio do loop de soma
+
++2095 - carrega para o acumulador a soma total dos valores inseridos
++3297 - divide o valor das somas armazenadas no acumulador e divide pela quantidade de valores inseridos.
++2194 - armazena o resultado da media na posicao de memoria 94.
++1194 - exibe o a media dos resultados
+
++4300 - termina a execução do programa
+
+Código finalizado
+
+Instruções:
+
+1 - Primeiro insira a quantidade de valores que serão calculados a média
+2 - Depois insira o decremento do laço de repeticao.
+3 - Insira os valores que serão calculados a media 
 
 
++1099
++1098
++2099
++2197
++2095
++1096
++3096
++2195
++2099
++3198
++2199
++4213
++4004
++2095
++3297
++2194
++1194
++4300
+-99999
+
+
+-------------------------------------------------------------------------------------------------
 
 
 
