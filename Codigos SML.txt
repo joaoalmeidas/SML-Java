@@ -125,6 +125,51 @@ Instruções:
 
 -------------------------------------------------------------------------------------------------
 
+c)Leia uma série de números, e determine e exiba o maior. 
+A primeiro número lido indica quantos devem ser processados.
+
++1099 - lê a quantidade de valores que serão analisados.
++1098 - le decremento
++2097 - carrega o maior para o acumulador valor atual
++1096 - le e armazena o novo valor a ser comparado
++3196 - subtrair o valor do acumulador pelo novo valor a ser comparado
++4107 - se o valor do acumulador ficar negativo, significa que o maior valor é o novo valor.
++4009 - pula para o inicio do controle de repeticoes
++2096 - carrega o novo valor para o acumulador
++2197 - armazena o novo valor para a posicao de memoria 97
++2099 - carrega para o acumulador a quantidade de valores.
++3198 - subtrai o decremento das quantidades.
++2199 - armazena o valor do acumulador na posicao de memoria 99.
++4214 - se o contador for negativo, ir para a posicao 14 da memoria
++4002 - vai para o inicio do laco de repeticao
++1197 - escrever o maior valor
++4300 - termina a execucao do programa
+
+Código finalizado
+
+Instruções:
+
+1 - Inserir a quantidade de valores que serão inseridos
+2 - Inserir o decremetento
+3 - Inserir os valores a serem comparados
+
++1099
++1098
++2097
++1096
++3196
++4107
++4009
++2096
++2197
++2099
++3198
++2199
++4214
++4002
++1197
++4300
+-99999
 
 
 
