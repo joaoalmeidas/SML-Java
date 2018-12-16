@@ -61,6 +61,7 @@ public class SML {
 				System.out.println(memoria[indice]);
 			}else if(operacao == LOAD){
 				acumulador = memoria[indice];
+				System.out.println(acumulador);
 			}else if(operacao == STORE){
 				memoria[indice] = acumulador;
 			}else if(operacao == ADD) {

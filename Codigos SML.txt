@@ -22,4 +22,39 @@ Codigos SML
 1110
 4300
 
-3 - 
+3 - Loop controlado por sentinela para ler 10 números positivos e exibir a sua soma.
+
+1099 - Lê quantos números devem ser somados = 10.
+1098 - Lê decremento = 1.
+
+1097 - Lê valor a ser somado.
+2097 - Carrega valor para acumulador.
+3096 - Adiciona resultado das somas anteriores para o acumulador.
+2196 - Armazena soma dos valores na posição de memória 96.
+
+2099 - Carrega a quantidade de números a serem somados no acumulador.
+3198 - Subtrai o decremento do valor de numeros a serem somados.
+2199 - Armazena o resultado do decremento na posicao 99 da memoria.
+4211 - Se o acumulador for igual a zero, vai para a posicao da memoria 11.
+4002 - Volta para o inicio do laco de repeticao.
+4300 - Termina a execução do programa.
+
+1099
+1098
+1097
+2097
+3096
+2196
+2099
+3198
+2199
+4211
+4002
+4300
+
+
+
+
+
+
+
