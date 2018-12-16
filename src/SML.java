@@ -17,33 +17,34 @@ public class SML {
 		final int BRANCHZERO = 42;
 		final int HALT = 43;
 		
-		String instrucao = new String();
+		int instrucao = 0;
 		Scanner input = new Scanner(System.in);
 		
 		int[] memoria = new int[100];
 		int posicao = 0, acumulador = 0, operacao = 0, indice = 0;
 		boolean halt = false;
 		
-		System.out.println("SIMPLETRON MACHINE LANGUAGE\n\nDigite o seu código abaixo:\nc + ENTER = EXECUTAR");
+		System.out.println("SIMPLETRON MACHINE LANGUAGE\n\nDigite o seu código abaixo:\n-99999 + ENTER = EXECUTAR");
 
 		//inputa os valores para a memoria
-		while(!instrucao.equals("c") && !instrucao.equals("C")) {
+		while(instrucao != -99999) {
 			
-			instrucao = input.nextLine();
-			if(!instrucao.equals("c") && !instrucao.equals("C")) {
-				operacao = Integer.parseInt(instrucao)/100;
-				indice = Integer.parseInt(instrucao)/100;
-			}
+			//insere linha de codigo
+			instrucao = input.nextInt();
 			
-			if(!instrucao.equals("c") && !instrucao.equals("C")){
-				if(indice >=0 && indice < 100 && instrucao.length() == 4 && operacao == READ || operacao == WRITE || operacao == LOAD || operacao == STORE || operacao == ADD || operacao == SUBTRACT || 
-						operacao == DIVIDE || operacao == MULTIPLY || operacao == BRANCH || operacao == BRANCHNEG || operacao == BRANCHZERO || operacao == HALT) {
-					
-						memoria[posicao] = Integer.parseInt(instrucao);
-						posicao++;
-				}else{
-					System.out.println("Comando incorreto, insira a linha de código novamente.");	
-				}
+			operacao = instrucao/100;
+			indice = instrucao%100;
+			
+			//valida a operacao e o indice
+			if(indice >= 0 && indice < 100 && operacao == READ || operacao == WRITE || operacao == LOAD || operacao == STORE || operacao == ADD || operacao == SUBTRACT || 
+			operacao == DIVIDE || operacao == MULTIPLY || operacao == BRANCH || operacao == BRANCHNEG || operacao == BRANCHZERO || 
+			operacao == HALT) {
+				
+				memoria[posicao] = instrucao;
+				posicao++;
+				
+			}else if(instrucao != -99999){
+				System.out.println("Indice ou operação inválida");
 			}
 		}
 		
@@ -61,7 +62,7 @@ public class SML {
 				System.out.println(memoria[indice]);
 			}else if(operacao == LOAD){
 				acumulador = memoria[indice];
-				System.out.println(acumulador);
+				//System.out.println(acumulador);
 			}else if(operacao == STORE){
 				memoria[indice] = acumulador;
 			}else if(operacao == ADD) {
