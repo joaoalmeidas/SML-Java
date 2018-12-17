@@ -13,6 +13,7 @@ public class SML {
 		final int SUBTRACT = 31;
 		final int DIVIDE = 32;
 		final int MULTIPLY = 33;
+		final int POW = 34;
 		final int BRANCH = 40;
 		final int BRANCHNEG = 41;
 		final int BRANCHZERO = 42;
@@ -50,7 +51,7 @@ public class SML {
 			//valida a operacao e o indice
 			if(indice >= 0 && indice < 1000 && operacao == READ || operacao == WRITE || operacao == LOAD || operacao == STORE || operacao == ADD || operacao == SUBTRACT || 
 			operacao == DIVIDE || operacao == MULTIPLY || operacao == BRANCH || operacao == BRANCHNEG || operacao == BRANCHZERO || 
-			operacao == HALT || operacao == CONTINUE) {
+			operacao == HALT || operacao == CONTINUE || operacao == POW) {
 				
 				memoria[posicao] = instrucao;
 				posicao++;
@@ -103,6 +104,8 @@ public class SML {
 				}
 			}else if(operacao == MULTIPLY) {
 				acumulador *= memoria[indice];
+			}else if(operacao == POW) {
+				acumulador = (int)Math.pow(acumulador, memoria[indice]);
 			}else if(operacao == BRANCH) {
 				i = indice - 1;
 			}else if(operacao == BRANCHNEG) {
