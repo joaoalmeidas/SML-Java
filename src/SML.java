@@ -20,10 +20,10 @@ public class SML {
 		
 		int instrucao = 0;
 		Scanner input = new Scanner(System.in);
-		DecimalFormat df = new DecimalFormat("00");
+		DecimalFormat df = new DecimalFormat("0000");
 		DecimalFormat dfMemoria = new DecimalFormat("+0000");
 		
-		int[] memoria = new int[100];
+		int[] memoria = new int[1000];
 		int posicao = 0, acumulador = 0, operacao = 0, indice = 0;
 		boolean halt = false;
 		
@@ -65,7 +65,7 @@ public class SML {
 		
 		
 		//percorre a memoria executando os comandos
-		for(int i = 0; i < 100 && halt == false; i++) {
+		for(int i = 0; i < 1000 && halt == false; i++) {
 			
 			//separa a operacao e a posicao contidos na posicao da memoria
 			
@@ -83,25 +83,6 @@ public class SML {
 				if(acumulador < -9999 || acumulador > +9999){
 					System.out.println("Estouro de memória!\nExecução do programa finalizada.");
 					halt=true;
-					System.out.println("Execução do programa finalizada!!");
-					System.out.println("REGISTRADORES");
-					System.out.printf("Acumulador:\t%d\n", acumulador);
-					System.out.printf("Contador de instruções:\t%d\n", posicaoMemoria);
-					System.out.printf("Instrução atual:\t%d\n", registroInstrucao);
-					System.out.printf("Operação:\t%d\n", operacao);
-					System.out.printf("Indice:\t%d\n", indice);
-					
-					System.out.println("MEMÓRIA");
-					
-					System.out.printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9");
-					
-					for(int j = 0; j < memoria.length; j++){
-						if(j%10 == 0) {
-							System.out.println();
-							System.out.printf("%dx\t",j/10);
-						}
-						System.out.printf(dfMemoria.format(memoria[j]) +"\t");
-					}
 				}else {
 					acumulador = memoria[indice];
 				}
@@ -113,27 +94,9 @@ public class SML {
 				acumulador -= memoria[indice];
 			}else if(operacao == DIVIDE) {
 				if(acumulador == 0 || memoria[indice] == 0){
+					//exibe dump de memoria
 					System.out.println("Tentativa de dividir por zero!\nExecução do programa finalizada.");
 					halt = true;
-					System.out.println("Execução do programa finalizada!!");
-					System.out.println("REGISTRADORES");
-					System.out.printf("Acumulador:\t%d\n", acumulador);
-					System.out.printf("Contador de instruções:\t%d\n", posicaoMemoria);
-					System.out.printf("Instrução atual:\t%d\n", registroInstrucao);
-					System.out.printf("Operação:\t%d\n", operacao);
-					System.out.printf("Indice:\t%d\n", indice);
-					
-					System.out.println("MEMÓRIA");
-					
-					System.out.printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9");
-					
-					for(int j = 0; j < memoria.length; j++){
-						if(j%10 == 0) {
-							System.out.println();
-							System.out.printf("%dx\t",j/10);
-						}
-						System.out.printf(dfMemoria.format(memoria[j]) +"\t");
-					}
 				}else {
 					acumulador /= memoria[indice];
 				}
@@ -151,6 +114,10 @@ public class SML {
 				}
 			}else if(operacao == HALT) {
 				halt = true;
+			}
+			
+			
+			if(halt == true) {
 				System.out.println("Execução do programa finalizada!!");
 				System.out.println("REGISTRADORES");
 				System.out.printf("Acumulador:\t%d\n", acumulador);
@@ -170,8 +137,7 @@ public class SML {
 					}
 					System.out.printf(dfMemoria.format(memoria[j]) +"\t");
 				}
-				
-			}	
+			}
 		}
 		
 		
