@@ -2,43 +2,43 @@ Codigos SML
 
 1 - Lê dois valores e calcula sua soma.
 
-+1007
-+1008
-+2007
-+3008
-+2109
-+1109
-+4300
++10007
++10008
++20007
++30008
++21009
++11009
++43000
 ------------------------------------------------------------------------------------------
 2 - Lê dois valores e define o maior
 
-+1009
-+1010
-+2009
-+3110
-+4107
-+1109
-+4300
-+1110
-+4300
++10009
++10010
++20009
++31010
++41007
++11009
++43000
++11010
++43000
 -------------------------------------------------------------------------------------
 3 - Loop controlado por sentinela para ler 10 números positivos e exibir a sua soma.
 
 
-+1099 - le valor de repeticoes para a memoria
-+1098 - le valor do decremento para a memoria	
-+1097 - le o valor a ser somado
-+2096 - carrega para o acumulador a soma dos valores ate entao
-+3097 - soma o valor a ser somado para o acumulador
-+2196 - armazena a soma na posicao da memoria 96
-+2099 - carrega o valor de repeticoes da memoria para o acumulador
-+3198 - subtrai do acumulador o valor do decremento
-+2199 - armazena o valor do acumulador para a posicao de memoria das repeticoes
-+4207 - se igual a zero, pula para a posicao 07 da memoria
-+4002 - pula para a posicao 03 da memoria
-+1196 - exibe a soma dos valores
-+4300 - finaliza a execucao do codigo
--99999
++10099 - le valor de repeticoes para a memoria
++10098 - le valor do decremento para a memoria	
++10097 - le o valor a ser somado
++20096 - carrega para o acumulador a soma dos valores ate entao
++30097 - soma o valor a ser somado para o acumulador
++21096 - armazena a soma na posicao da memoria 96
++20099 - carrega o valor de repeticoes da memoria para o acumulador
++31098 - subtrai do acumulador o valor do decremento
++21099 - armazena o valor do acumulador para a posicao de memoria das repeticoes
++42007 - se igual a zero, pula para a posicao 07 da memoria
++40002 - pula para a posicao 03 da memoria
++11096 - exibe a soma dos valores
++43000 - finaliza a execucao do codigo
+-999999
 
 
 Código finalizado
@@ -50,48 +50,48 @@ Instruções:
 3 - Insira os valores a serem somados
 
 
-+1099
-+1098
-+1097
-+2096
-+3097
-+2196
-+2099
-+3198
-+2199
-+4211
-+4002
-+1196
-+4300
--99999
++10099
++10098
++10097
++20096
++30097
++21096
++20099
++31098
++21099
++42011
++40002
++11096
++43000
+-999999
 ------------------------------------------------------------------------------------------------
 
 b) Utilize um loop controlado por contador para ler sete números, 
 alguns negativos e alguns positivos, e compute e exiba sua média.
 
-+1099 - numero repeticoes
-+1098 - decremento
-+2099 - carrega o numero de repeticoes no acumulador
-+2197 - armazena o o numero de repeticoes na posicao 97
++10099 - numero repeticoes
++10098 - decremento
++20099 - carrega o numero de repeticoes no acumulador
++21097 - armazena o o numero de repeticoes na posicao 97
 
-+2095 - carregar resultado parcial da soma para o acumulador
-+1096 - ler numero que ira entrar na conta para a posicao 96
-+3096 - adicionar ao acumulador o novo valor que sera acrescentado que esta na posição 96
-+2195 - armazenar resultado do acumulador na posicao 95.
++20095 - carregar resultado parcial da soma para o acumulador
++10096 - ler numero que ira entrar na conta para a posicao 96
++30096 - adicionar ao acumulador o novo valor que sera acrescentado que esta na posição 96
++21095 - armazenar resultado do acumulador na posicao 95.
 
-+2099 - carregar o numero de repeticoes restantes para o acumulador
-+3198 - decrementar o numero de repeticoes restantes que esta no acumulador
-+2199 - armazenar o resultado do numero de repeticoes restantes na posicao 99
++20099 - carregar o numero de repeticoes restantes para o acumulador
++31098 - decrementar o numero de repeticoes restantes que esta no acumulador
++21099 - armazenar o resultado do numero de repeticoes restantes na posicao 99
 
-+4213 - se o valor do acumulador for negativo, vai para a parte final da execução do programa
-+4004 - volta para o inicio do loop de soma
++42013 - se o valor do acumulador for negativo, vai para a parte final da execução do programa
++40004 - volta para o inicio do loop de soma
 
-+2095 - carrega para o acumulador a soma total dos valores inseridos
-+3297 - divide o valor das somas armazenadas no acumulador e divide pela quantidade de valores inseridos.
-+2194 - armazena o resultado da media na posicao de memoria 94.
-+1194 - exibe o a media dos resultados
++20095 - carrega para o acumulador a soma total dos valores inseridos
++32097 - divide o valor das somas armazenadas no acumulador e divide pela quantidade de valores inseridos.
++21094 - armazena o resultado da media na posicao de memoria 94.
++11094 - exibe o a media dos resultados
 
-+4300 - termina a execução do programa
++43000 - termina a execução do programa
 
 Código finalizado
 
@@ -102,25 +102,25 @@ Instruções:
 3 - Insira os valores que serão calculados a media 
 
 
-+1099
-+1098
-+2099
-+2197
-+2095
-+1096
-+3096
-+2195
-+2099
-+3198
-+2199
-+4213
-+4004
-+2095
-+3297
-+2194
-+1194
-+4300
--99999
++10099
++10098
++20099
++21097
++20095
++10096
++30096
++21095
++20099
++31098
++21099
++42013
++40004
++20095
++32097
++21094
++11094
++43000
+-999999
 
 
 -------------------------------------------------------------------------------------------------
@@ -128,22 +128,22 @@ Instruções:
 c)Leia uma série de números, e determine e exiba o maior. 
 A primeiro número lido indica quantos devem ser processados.
 
-+1099 - lê a quantidade de valores que serão analisados.
-+1098 - le decremento
-+2097 - carrega o maior para o acumulador valor atual
-+1096 - le e armazena o novo valor a ser comparado
-+3196 - subtrair o valor do acumulador pelo novo valor a ser comparado
-+4107 - se o valor do acumulador ficar negativo, significa que o maior valor é o novo valor.
-+4009 - pula para o inicio do controle de repeticoes
-+2096 - carrega o novo valor para o acumulador
-+2197 - armazena o novo valor para a posicao de memoria 97
-+2099 - carrega para o acumulador a quantidade de valores.
-+3198 - subtrai o decremento das quantidades.
-+2199 - armazena o valor do acumulador na posicao de memoria 99.
-+4214 - se o contador for negativo, ir para a posicao 14 da memoria
-+4002 - vai para o inicio do laco de repeticao
-+1197 - escrever o maior valor
-+4300 - termina a execucao do programa
++10099 - lê a quantidade de valores que serão analisados.
++10098 - le decremento
++20097 - carrega o maior para o acumulador valor atual
++10096 - le e armazena o novo valor a ser comparado
++31096 - subtrair o valor do acumulador pelo novo valor a ser comparado
++41007 - se o valor do acumulador ficar negativo, significa que o maior valor é o novo valor.
++40009 - pula para o inicio do controle de repeticoes
++20096 - carrega o novo valor para o acumulador
++21097 - armazena o novo valor para a posicao de memoria 97
++20099 - carrega para o acumulador a quantidade de valores.
++31098 - subtrai o decremento das quantidades.
++21099 - armazena o valor do acumulador na posicao de memoria 99.
++42014 - se o contador for negativo, ir para a posicao 14 da memoria
++40002 - vai para o inicio do laco de repeticao
++11097 - escrever o maior valor
++43000 - termina a execucao do programa
 
 Código finalizado
 
@@ -153,23 +153,41 @@ Instruções:
 2 - Inserir o decremetento
 3 - Inserir os valores a serem comparados
 
-+1099
-+1098
-+2097
-+1096
-+3196
-+4107
-+4009
-+2096
-+2197
-+2099
-+3198
-+2199
-+4214
-+4002
-+1197
-+4300
--99999
++10099
++10098
++20097
++10096
++31096
++41007
++40009
++20096
++21097
++20099
++31098
++21099
++42014
++40002
++11097
++43000
+-999999
+
+Exemplo de execução de dois programas seguidos
+
++10099
++10098
++20099
++30098
++21097
++11097
++44007
++10050
++10051
++20050
++30051
++21052
++11052
++43000
+-999999
 
 
 
