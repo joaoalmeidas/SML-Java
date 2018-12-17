@@ -151,12 +151,13 @@ public class SML {
 		
 		System.out.println("MEMÓRIA");
 		
-		System.out.printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9");
+		System.out.printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\tA\tB\tC\tD\tE\tF");
 		
 		for(int j = 0; j < memoria.length; j++){
-			if(j%10 == 0) {
+			if(j%16 == 0) {
 				System.out.println();
-				System.out.printf("%dx\t",j/10);
+				//System.out.printf("%dx\t",j/16);
+				System.out.printf(Integer.toHexString(j/16)+"_\t");
 			}
 			System.out.printf(dfMemoria.format(memoria[j]) +"\t");
 		}
