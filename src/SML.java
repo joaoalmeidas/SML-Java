@@ -9,6 +9,7 @@ public class SML {
 		final int WRITE = 11;
 		final int ENTER = 12
 		final int ENTERSTRING = 13;
+		final int SHOWSTRING = 14;
 		final int LOAD = 20;
 		final int STORE = 21;
 		final int ADD = 30;
@@ -28,6 +29,7 @@ public class SML {
 		final String WRITE = "b";
 		final String ENTER = "c";
 		final String ENTERSTRING = "d";
+		final String SHOWSTRING = "e";
 		final String LOAD = "14";
 		final String STORE = "15";
 		final String ADD = "1e";
@@ -74,9 +76,10 @@ public class SML {
 			indice = instrucao%1000;
 			
 			//valida a operacao e o indice
-			if(indice >= 0 && indice < 1000 && operacao.equals(READ) || operacao.equals(WRITE) || operacao.equals(LOAD) || operacao.equals(STORE) || operacao.equals(ADD) || operacao.equals(SUBTRACT) 
-			|| operacao.equals(DIVIDE) || operacao.equals(MULTIPLY) || operacao.equals(BRANCH) || operacao.equals(BRANCHNEG) || operacao.equals(BRANCHZERO) || 
-			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW) || operacao.equals(REST) || operacao.equals(ENTER) || operacao.equals(ENTERSTRING)) {
+			if(indice >= 0 && indice < 1000 && operacao.equals(READ) || operacao.equals(WRITE) || operacao.equals(LOAD) || operacao.equals(STORE) || 
+			operacao.equals(ADD) || operacao.equals(SUBTRACT) || operacao.equals(DIVIDE) || operacao.equals(MULTIPLY) || operacao.equals(BRANCH) || 
+			operacao.equals(BRANCHNEG) || operacao.equals(BRANCHZERO) || operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW) ||
+			operacao.equals(REST) || operacao.equals(ENTER) || operacao.equals(ENTERSTRING) || operacao.equals(SHOWSTRING)) {
 				
 				memoria[posicao] = instrucao;
 				posicao++;
@@ -126,8 +129,29 @@ public class SML {
 					memoria[indice+k] = Double.parseDouble(caractere);
 				}
 				
-			}
-			else if(operacao.equals(LOAD)){
+			}else if(operacao.equals(SHOWSTRING)) {
+				
+				int tamanhoString = 0, caractere = 0;
+				String frase = new String();
+				
+				if(memoria[indice] < 10000) {
+					tamanhoString = (int) memoria[indice]/100;
+				}else {
+					tamanhoString = (int) memoria[indice]/1000;
+				}
+				
+				for(int k = indice; k < indice + tamanhoString; k++) {
+					if(memoria[k] < 10000) {
+						caractere = (int) memoria[k]%100;
+					}else {
+						caractere = (int) memoria[k]%1000;
+					}
+					frase += (char) caractere;
+				}
+				
+				System.out.println(frase);
+				
+			}else if(operacao.equals(LOAD)){
 				if(acumulador < -99999 || acumulador > +99999){
 					System.out.println("Estouro de memória!\nExecução do programa finalizada.");
 					halt=true;
