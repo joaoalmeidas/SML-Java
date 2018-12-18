@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class SML {
 
 	public static void main(String[] args) {
-		
+		/*
 		final int READ = 10;
 		final int WRITE = 11;
 		final int LOAD = 20;
@@ -19,6 +19,22 @@ public class SML {
 		final int BRANCHZERO = 42;
 		final int HALT = 43;
 		final int CONTINUE = 44;
+		*/
+		
+		final String READ = "a";
+		final String WRITE = "b";
+		final String LOAD = "14";
+		final String STORE = "15";
+		final String ADD = "1e";
+		final String SUBTRACT = "1f";
+		final String DIVIDE = "20";
+		final String MULTIPLY = "21";
+		final String POW = "22";
+		final String BRANCH = "28";
+		final String BRANCHNEG = "29";
+		final String BRANCHZERO = "2a";
+		final String HALT = "2b";
+		final String CONTINUE = "2c";
 		
 		int instrucao = 0;
 		Scanner input = new Scanner(System.in);
@@ -26,7 +42,8 @@ public class SML {
 		DecimalFormat dfMemoria = new DecimalFormat("+00000");
 		
 		int[] memoria = new int[1000];
-		int posicao = 0, acumulador = 0, operacao = 0, indice = 0;
+		int posicao = 0, acumulador = 0, indice = 0;
+		String operacao;
 		boolean halt = false;
 		
 		System.out.println("SIMPLETRON MACHINE LANGUAGE\n"
@@ -45,13 +62,14 @@ public class SML {
 			//insere linha de codigo
 			instrucao = input.nextInt();
 			
-			operacao = instrucao/1000;
+			operacao = converteDecimalParaHexadecimal(instrucao/1000);
+			System.out.println(operacao);
 			indice = instrucao%1000;
 			
 			//valida a operacao e o indice
-			if(indice >= 0 && indice < 1000 && operacao == READ || operacao == WRITE || operacao == LOAD || operacao == STORE || operacao == ADD || operacao == SUBTRACT || 
-			operacao == DIVIDE || operacao == MULTIPLY || operacao == BRANCH || operacao == BRANCHNEG || operacao == BRANCHZERO || 
-			operacao == HALT || operacao == CONTINUE || operacao == POW) {
+			if(indice >= 0 && indice < 1000 && operacao.equals(READ) || operacao.equals(WRITE) || operacao.equals(LOAD) || operacao.equals(STORE) || operacao.equals(ADD) || operacao.equals(SUBTRACT) 
+			|| operacao.equals(DIVIDE) || operacao.equals(MULTIPLY) || operacao.equals(BRANCH) || operacao.equals(BRANCHNEG) || operacao.equals(BRANCHZERO) || 
+			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW)) {
 				
 				memoria[posicao] = instrucao;
 				posicao++;
@@ -71,30 +89,32 @@ public class SML {
 			
 			//separa a operacao e a posicao contidos na posicao da memoria
 			
+			System.out.println("teste");
+			
 			int registroInstrucao = memoria[i];
 			
-			operacao = registroInstrucao/1000;
+			operacao = converteDecimalParaHexadecimal(registroInstrucao/1000);
 			indice = registroInstrucao%1000;
 			
-			if(operacao == READ) {
+			if(operacao.equals(READ)) {
 				System.out.printf("Insira um valor:");
 				memoria[indice] = input.nextInt();
-			}else if(operacao == WRITE){
+			}else if(operacao.equals(WRITE)){
 				System.out.println(memoria[indice]);
-			}else if(operacao == LOAD){
+			}else if(operacao.equals(LOAD)){
 				if(acumulador < -99999 || acumulador > +99999){
 					System.out.println("Estouro de memória!\nExecução do programa finalizada.");
 					halt=true;
 				}else {
 					acumulador = memoria[indice];
 				}
-			}else if(operacao == STORE){
+			}else if(operacao.equals(STORE)){
 				memoria[indice] = acumulador;
-			}else if(operacao == ADD) {
+			}else if(operacao.equals(ADD)) {
 				acumulador += memoria[indice];
-			}else if(operacao == SUBTRACT) {
+			}else if(operacao.equals(SUBTRACT)) {
 				acumulador -= memoria[indice];
-			}else if(operacao == DIVIDE) {
+			}else if(operacao.equals(DIVIDE)) {
 				if(acumulador == 0 || memoria[indice] == 0){
 					//exibe dump de memoria
 					System.out.println("Tentativa de dividir por zero!\nExecução do programa finalizada.");
@@ -102,23 +122,23 @@ public class SML {
 				}else {
 					acumulador /= memoria[indice];
 				}
-			}else if(operacao == MULTIPLY) {
+			}else if(operacao.equals(MULTIPLY)) {
 				acumulador *= memoria[indice];
-			}else if(operacao == POW) {
+			}else if(operacao.equals(POW)) {
 				acumulador = (int)Math.pow(acumulador, memoria[indice]);
 			}else if(operacao == BRANCH) {
 				i = indice - 1;
-			}else if(operacao == BRANCHNEG) {
+			}else if(operacao.equals(BRANCHNEG)) {
 				if(acumulador < 0) {
 					i = indice - 1;
 				}
-			}else if(operacao == BRANCHZERO) {
+			}else if(operacao.equals(BRANCHZERO)) {
 				if(acumulador == 0) {
 					i = indice - 1;
 				}
-			}else if(operacao == HALT) {
+			}else if(operacao.equals(HALT)) {
 				halt = true;
-			}else if(operacao == CONTINUE) {
+			}else if(operacao.equals(CONTINUE)) {
 				
 				System.out.println("Fim da execução do programa SML!");
 				
@@ -140,13 +160,13 @@ public class SML {
 		
 	}
 	
-	public static void exibeDump(int acumulador, int posicaoMemoria, int registroInstrucao, int operacao, int indice, int[] memoria, DecimalFormat dfMemoria){
+	public static void exibeDump(int acumulador, int posicaoMemoria, int registroInstrucao, String operacao, int indice, int[] memoria, DecimalFormat dfMemoria){
 		System.out.println("Execução do programa finalizada!!");
 		System.out.println("REGISTRADORES");
 		System.out.printf("Acumulador:\t%d\n", acumulador);
 		System.out.printf("Contador de instruções:\t%d\n", posicaoMemoria);
 		System.out.printf("Instrução atual:\t%d\n", registroInstrucao);
-		System.out.printf("Operação:\t%d\n", operacao);
+		System.out.printf("Operação:\t%s\n", operacao);
 		System.out.printf("Indice:\t%d\n", indice);
 		
 		System.out.println("MEMÓRIA");
@@ -161,6 +181,14 @@ public class SML {
 			}
 			System.out.printf(dfMemoria.format(memoria[j]) +"\t");
 		}
+	}
+	
+	public static String converteDecimalParaHexadecimal(int decimal) {
+		return Integer.toHexString(decimal);
+	}
+	
+	public static int converterHexadecimalParaDecimal(String hexadecimal) {
+		return Integer.decode("0x"+hexadecimal);
 	}
 	
 }
