@@ -45,8 +45,9 @@ public class SML {
 		DecimalFormat df = new DecimalFormat("00000");
 		DecimalFormat dfMemoria = new DecimalFormat("+00000");
 		
-		int[] memoria = new int[1000];
-		int posicao = 0, acumulador = 0, indice = 0;
+		double acumulador = 0;
+		double[] memoria = new double[1000];
+		int posicao = 0, indice = 0;
 		String operacao;
 		boolean halt = false;
 		
@@ -93,14 +94,14 @@ public class SML {
 			//separa a operacao e a posicao contidos na posicao da memoria
 			
 			
-			int registroInstrucao = memoria[i];
+			int registroInstrucao = (int) memoria[i];
 			
 			operacao = converteDecimalParaHexadecimal(registroInstrucao/1000);
 			indice = registroInstrucao%1000;
 			
 			if(operacao.equals(READ)) {
 				System.out.printf("Insira um valor:");
-				memoria[indice] = input.nextInt();
+				memoria[indice] = input.nextDouble();
 			}else if(operacao.equals(WRITE)){
 				System.out.println(memoria[indice]);
 			}else if(operacao.equals(ENTER)) {
@@ -166,10 +167,10 @@ public class SML {
 		
 	}
 	
-	public static void exibeDump(int acumulador, int posicaoMemoria, int registroInstrucao, String operacao, int indice, int[] memoria, DecimalFormat dfMemoria){
+	public static void exibeDump(double acumulador, int posicaoMemoria, int registroInstrucao, String operacao, int indice, double[] memoria, DecimalFormat dfMemoria){
 		System.out.println("Execução do programa finalizada!!");
 		System.out.println("REGISTRADORES");
-		System.out.printf("Acumulador:\t%d\n", acumulador);
+		System.out.printf("Acumulador:\t%f\n", acumulador);
 		System.out.printf("Contador de instruções:\t%d\n", posicaoMemoria);
 		System.out.printf("Instrução atual:\t%d\n", registroInstrucao);
 		System.out.printf("Operação:\t%s\n", operacao);
