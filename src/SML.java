@@ -14,6 +14,7 @@ public class SML {
 		final int DIVIDE = 32;
 		final int MULTIPLY = 33;
 		final int POW = 34;
+		final int REST = 35;
 		final int BRANCH = 40;
 		final int BRANCHNEG = 41;
 		final int BRANCHZERO = 42;
@@ -30,6 +31,7 @@ public class SML {
 		final String DIVIDE = "20";
 		final String MULTIPLY = "21";
 		final String POW = "22";
+		final String REST = "23";
 		final String BRANCH = "28";
 		final String BRANCHNEG = "29";
 		final String BRANCHZERO = "2a";
@@ -63,13 +65,12 @@ public class SML {
 			instrucao = input.nextInt();
 			
 			operacao = converteDecimalParaHexadecimal(instrucao/1000);
-			System.out.println(operacao);
 			indice = instrucao%1000;
 			
 			//valida a operacao e o indice
 			if(indice >= 0 && indice < 1000 && operacao.equals(READ) || operacao.equals(WRITE) || operacao.equals(LOAD) || operacao.equals(STORE) || operacao.equals(ADD) || operacao.equals(SUBTRACT) 
 			|| operacao.equals(DIVIDE) || operacao.equals(MULTIPLY) || operacao.equals(BRANCH) || operacao.equals(BRANCHNEG) || operacao.equals(BRANCHZERO) || 
-			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW)) {
+			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW) || operacao.equals(REST)) {
 				
 				memoria[posicao] = instrucao;
 				posicao++;
@@ -89,7 +90,6 @@ public class SML {
 			
 			//separa a operacao e a posicao contidos na posicao da memoria
 			
-			System.out.println("teste");
 			
 			int registroInstrucao = memoria[i];
 			
@@ -126,6 +126,8 @@ public class SML {
 				acumulador *= memoria[indice];
 			}else if(operacao.equals(POW)) {
 				acumulador = (int)Math.pow(acumulador, memoria[indice]);
+			}else if(operacao.equals(REST)) {
+				acumulador %= memoria[indice];
 			}else if(operacao == BRANCH) {
 				i = indice - 1;
 			}else if(operacao.equals(BRANCHNEG)) {
