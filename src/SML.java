@@ -8,6 +8,7 @@ public class SML {
 		final int READ = 10;
 		final int WRITE = 11;
 		final int ENTER = 12
+		final int ENTERSTRING = 13;
 		final int LOAD = 20;
 		final int STORE = 21;
 		final int ADD = 30;
@@ -26,6 +27,7 @@ public class SML {
 		final String READ = "a";
 		final String WRITE = "b";
 		final String ENTER = "c";
+		final String ENTERSTRING = "d";
 		final String LOAD = "14";
 		final String STORE = "15";
 		final String ADD = "1e";
@@ -66,6 +68,7 @@ public class SML {
 			
 			//insere linha de codigo
 			instrucao = input.nextInt();
+			input.nextLine();
 			
 			operacao = converteDecimalParaHexadecimal(instrucao/1000);
 			indice = instrucao%1000;
@@ -73,7 +76,7 @@ public class SML {
 			//valida a operacao e o indice
 			if(indice >= 0 && indice < 1000 && operacao.equals(READ) || operacao.equals(WRITE) || operacao.equals(LOAD) || operacao.equals(STORE) || operacao.equals(ADD) || operacao.equals(SUBTRACT) 
 			|| operacao.equals(DIVIDE) || operacao.equals(MULTIPLY) || operacao.equals(BRANCH) || operacao.equals(BRANCHNEG) || operacao.equals(BRANCHZERO) || 
-			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW) || operacao.equals(REST) || operacao.equals(ENTER)) {
+			operacao.equals(HALT) || operacao.equals(CONTINUE) || operacao.equals(POW) || operacao.equals(REST) || operacao.equals(ENTER) || operacao.equals(ENTERSTRING)) {
 				
 				memoria[posicao] = instrucao;
 				posicao++;
@@ -106,7 +109,25 @@ public class SML {
 				System.out.println(memoria[indice]);
 			}else if(operacao.equals(ENTER)) {
 				System.out.println();
-			}else if(operacao.equals(LOAD)){
+			}else if(operacao.equals(ENTERSTRING)){
+				
+				System.out.printf("Escreva uma frase: ");
+				String frase = new String();
+				frase = input.nextLine();
+				
+				while(frase.length() > 100) {
+					System.out.printf("Frases com mais de 100 caracteres não são permitidos!\nEscreva a frase novamente:");
+					frase = input.nextLine();
+				}
+				
+				
+				for(int k = 0; k < frase.length(); k++) {
+					String caractere = frase.length()+""+(int)frase.charAt(k);
+					memoria[indice+k] = Double.parseDouble(caractere);
+				}
+				
+			}
+			else if(operacao.equals(LOAD)){
 				if(acumulador < -99999 || acumulador > +99999){
 					System.out.println("Estouro de memória!\nExecução do programa finalizada.");
 					halt=true;
